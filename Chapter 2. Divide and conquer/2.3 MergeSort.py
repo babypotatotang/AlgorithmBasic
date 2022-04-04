@@ -1,7 +1,7 @@
 #Merge Sort
-import sys
-n = int(input())
-data = [int(sys.stdin.readline().strip()) for i in range(n)]
+# import sys
+# n = int(input())
+# data = [int(sys.stdin.readline().strip()) for i in range(n)]
 
 def sort(a):
     n=len(a)
@@ -18,11 +18,10 @@ def merge(x,y):
         return x[0:1]+merge(x[1:],y)
     else:
         return y[0:1]+merge(x,y[1:])
-    
-    
-answer=sort(data)
 
-for i in answer:
-    sys.stdout.write(str(i)+'\n')
+input=list(map(int,input().split()))
+output=sort(input)
+for i in output:
+    print(i, end=' ')
 
 
