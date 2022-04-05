@@ -12,15 +12,19 @@ def explore(G,v):
             searched.append(u)
             searched.extend(explore(G,u))
     return searched
-
+    
 #Depth-first search
 def dfs(start):
     searched=[start]
+
     for vertex in graph:
         if not visited[vertex]: 
             searched.extend(explore(graph,vertex))
 
-    return searched
+    if not flag: #찾고자하는 노드가 그래프에 없는 경우 
+        print("No node named "+str(wish)); return 
+    else: #찾은 경우 
+        print("Searched way"); print(searched); return
 
 #python에서는 dictionary 타입으로 graph 선언
 graph={
@@ -39,4 +43,4 @@ graph={
 visited=[False]*(len(graph)+1)
 wish=9 #찾고자하는 노드 
 flag=False #발견 플래그
-print(dfs(1))
+dfs(1)
